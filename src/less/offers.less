@@ -1,0 +1,141 @@
+.grid-card {
+    max-width: calc((100% / 3) - @margin-grid / 2);
+    background-color: @bg-color-card;
+    border-radius: 4px;
+    min-height: 432px;
+    margin-bottom: @margin-grid;
+    transition: all 0.3s ease-out;
+
+    .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .price {
+        position: absolute;
+        left: 0;
+        bottom: 25px;
+        background-color: fade(@bg-color-card, 50%);
+        align-items: center;
+        display: flex;
+        
+        p {
+            margin: 0;
+            padding: 4px 3px;
+        }
+
+        .value {
+            background-color: @color-primary;
+            font-size: 13px;
+            color: #1B1E22;
+            text-align: center;
+
+            span {
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+
+        .validity {
+            min-width: 170px;
+            font-size: 13px;
+            color: #fff;
+            text-align: center;
+        }
+    }
+
+    .info {
+        width: 100%;
+        padding: 15px 20px 20px;
+
+        .title-link {
+
+            color: #fff;
+
+            &:hover > h3{
+            color: @color-primary;
+            }
+
+            &:active > h3{
+            color: darken(@color-primary, 10%);
+            }
+
+            &:focus > h3{
+            color: lighten(@color-primary, 10%);
+            }
+        }
+
+        .details{
+            color: #FFFFFF;
+            opacity: 0.5;
+
+            &:hover {
+                color: @color-primary;
+            }
+        }
+
+
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        z-index: 2;
+        background-color: #fff;
+
+        .info {
+            .title-link > h3 {
+                color: @color-secondary;
+
+                &:hover{
+                    color: @color-primary;
+                    }
+                &:active {
+                    color: darken(@color-primary, 10%);
+                    }
+            
+                &:focus {
+                    color: lighten(@color-primary, 10%);
+                    }
+            }
+
+            .description-card {
+                color: @color-secondary;
+            }
+
+            .details{
+                color: #000;
+            }
+        }
+    }
+}
+
+.grid-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.button-wrapper .-lazyload-button {
+    display: block;
+    margin: 0 auto;
+}
+
+.offers {
+    margin-bottom: @margin-block;
+}
+
+@media screen and (max-width:  @breakpoint-s) {
+    .grid-card {
+        max-width: calc((100% / 2) - @margin-grid / 2);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .grid-card {
+        max-width: 100%;
+    }
+}
